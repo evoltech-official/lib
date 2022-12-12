@@ -15,7 +15,7 @@ var line1 = newLine('line1',[
                 "text": [
                     {
                         "text": "hello ",
-                        "decorations": "bold",
+                        "decorations": "bold italic underline",
                         "color": "pink"
                     },
                     {
@@ -31,6 +31,7 @@ var line1 = newLine('line1',[
 var section2 = newSection('section2',[
     {
         "id": "text2",
+        "backgroundcolor": "darkred",
         "text": [
             {
                 "text": "test ",
@@ -50,11 +51,13 @@ var section2 = newSection('section2',[
         ]
     }
 ],line1.id)
+var textcomponent = newTextComponent('REDDENDED','bold italic underline strikethrough','darkred','text2')
 var text3 = newText('text3',[
     {
         "text": "thing ",
-        "decorations": "underline",
-        "color": "darkpurple"
+        "decorations": "",
+        "color": "darkpurple",
+        "backgroundcolor": "darkaqua"
     },
     {
         "text": "thing ",

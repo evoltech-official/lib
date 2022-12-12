@@ -82,7 +82,7 @@ html, body {
 .text {
     margin: 0;
     display: inline;
-    float:left;
+    float: left;
 }
 .section {
     display: inline;
