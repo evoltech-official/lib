@@ -1,6 +1,18 @@
 function startup(d) {
     document.title = d.title;
 }
+function calculateLineProperties(x,y) {
+    var linewidth = x*24;
+    var lineheight = y*16;
+    return [lineheight,linewidth];
+}
+function drawElement(id,w,h,x,y,par,b) {
+    var width = calculateLineProperties(w,h)[1];
+    var height = calculateLineProperties(w,h)[0];
+    var horpos = calculateLineProperties(x,y)[1];
+    var verpos = calculateLineProperties(x,y)[0];
+    var elem = document.createElement('div');
+}
 function newTextComponent(t,d,c,par,bg) {
     var parent = document.getElementById(par);
     var elem = document.createElement('span');
@@ -42,7 +54,7 @@ function newTextComponent(t,d,c,par,bg) {
 }
 function newText(id,d,par,bg) {
     var parent = document.getElementById(par);
-    var elem = document.createElement('p');
+    var elem = document.createElement('span');
     elem.classList.add('text');
     elem.id = id;
     if((bg != null)||(bg != '')||(bg != undefined)) {
@@ -57,7 +69,7 @@ function newText(id,d,par,bg) {
 }
 function newSection(id,d,par,bg) {
     var parent = document.getElementById(par);
-    var elem = document.createElement('div');
+    var elem = document.createElement('span');
     elem.classList.add('section');
     elem.id = id;
     if((bg != null)||(bg != '')||(bg != undefined)) {
@@ -75,10 +87,11 @@ function newSection(id,d,par,bg) {
     }
     return elem;
 }
-function newLine(id,d) {
+function newLine(id,d,a) {
     var parent = document.getElementById('terminalscreen');
     var elem = document.createElement('div');
     elem.classList.add('line');
+    //elem.style.justifyContent = 'space-around'
     elem.id = id;
     parent.appendChild(elem);
     for (let section = 0; section < d.length; section++) {
@@ -98,6 +111,6 @@ function newLine(id,d) {
 function newElement(id,d,type,par) {
 
 }
-function newScreen() {
+function newScreen(id,d) {
 
 }

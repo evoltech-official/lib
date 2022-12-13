@@ -1,4 +1,3 @@
-const screen = document.getElementById('terminalscreen');
 var settings = { 
     "title"  :  "EVOL", 
     "version"   :  "1.0.0 BETA"
@@ -26,47 +25,107 @@ var line1 = newLine('line1',[
                 ]
             }
         ]
-    }
-]);
-var section2 = newSection('section2',[
+    },
     {
-        "id": "text2",
-        "backgroundcolor": "darkred",
-        "text": [
+        "id": "section4",
+        "section": [
             {
-                "text": "test ",
-                "decorations": "underline",
-                "color": "darkpurple"
-            },
+                "id": "text4",
+                "text": [
+                    {
+                        "text": "hello ",
+                        "decorations": "bold italic underline",
+                        "color": "pink"
+                    },
+                    {
+                        "text": "world",
+                        "decorations": "italic",
+                        "color": "blue"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "section5",
+        "section": [
             {
-                "text": "thing, ",
-                "decorations": "italic",
-                "color": "aqua"
-            },
-            {
-                "text": "cool ",
-                "decorations": "italic",
-                "color": "brown"
+                "id": "text5",
+                "text": [
+                    {
+                        "text": "hello ",
+                        "decorations": "bold italic underline",
+                        "color": "pink"
+                    },
+                    {
+                        "text": "world",
+                        "decorations": "italic",
+                        "color": "blue"
+                    }
+                ]
             }
         ]
     }
-],line1.id)
-var textcomponent = newTextComponent('REDDENDED','bold italic underline strikethrough','darkred','text2')
-var text3 = newText('text3',[
+]);
+var line2 = newLine('line2',[
     {
-        "text": "thing ",
-        "decorations": "",
-        "color": "darkpurple",
-        "backgroundcolor": "darkaqua"
+        "id": "section2",
+        "section": [
+            {
+                "id": "text2",
+                "text": [
+                    {
+                        "text": "hello ",
+                        "decorations": "bold italic underline",
+                        "color": "pink"
+                    },
+                    {
+                        "text": "world",
+                        "decorations": "italic",
+                        "color": "blue"
+                    }
+                ]
+            }
+        ]
     },
     {
-        "text": "thing ",
-        "decorations": "italic",
-        "color": "aqua"
+        "id": "section3",
+        "section": [
+            {
+                "id": "text3",
+                "text": [
+                    {
+                        "text": "hello ",
+                        "decorations": "bold italic underline",
+                        "color": "pink"
+                    },
+                    {
+                        "text": "world",
+                        "decorations": "italic",
+                        "color": "blue"
+                    }
+                ]
+            }
+        ]
     },
     {
-        "text": "one more ",
-        "decorations": "italic",
-        "color": "red"
+        "id": "section6",
+        "section": [
+            {
+                "id": "text6",
+                "text": [
+                    {
+                        "text": "hello ",
+                        "decorations": "bold italic underline",
+                        "color": "pink"
+                    },
+                    {
+                        "text": "world",
+                        "decorations": "italic",
+                        "color": "blue"
+                    }
+                ]
+            }
+        ]
     }
-],section2.id)
+]);
