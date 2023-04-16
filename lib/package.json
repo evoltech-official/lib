@@ -1,0 +1,20 @@
+{
+  "name": "evol-lib",
+  "version": "1.0.0",
+  "description": "The Official Evol Library.",
+  "main": "dist/evol-lib.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack serve --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.2"
+  }
+}
