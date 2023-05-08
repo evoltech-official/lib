@@ -1,2 +1,2 @@
-# evol-tech
-Evol Tech Official
+# LIB
+The UI library for the evol tech project.
