@@ -88,7 +88,7 @@ class Parser {
                         chars.push(`<span style="`+stack.join(';')+`" >`+tokens[i].substring(ch,ch+5)+`</span>`);
                         ch+=5;
                     } else if (tokens[i].substring(ch,ch+2) == '\n') {
-                        chars.push(`<span style="`+stack.join(';')+`" >`+tokens[i].substring(ch,ch+2)+`</span>`);
+                        chars.push(25);
                         ch++;
                     }
                     chars.push(`<span style="`+stack.join(';')+`" >`+tokens[i].charAt(ch)+`</span>`);

@@ -33,6 +33,17 @@ class Parargaph extends Component {
                     }
                     subwidth = 0;
                 }
+                if (chars[ch] == 25) {
+                    suby++;
+                    ch+=2;
+                    if(suby+1 > this.style.height) {
+                        map.setPoint(this.style.litx+subwidth-3,this.style.lity+this.style.height-1,'.');
+                        map.setPoint(this.style.litx+subwidth-2,this.style.lity+this.style.height-1,'.');
+                        map.setPoint(this.style.litx+subwidth-1,this.style.lity+this.style.height-1,'.');
+                        break;
+                    }
+                    subwidth = 0;
+                }
                 map.setPoint(this.style.litx+subwidth,this.style.lity+suby,chars[ch]);
                 subwidth++;
             }

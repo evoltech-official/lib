@@ -32,7 +32,7 @@ var beautifultext = new evol.components.par('paragraph','thebox',{
   "height": 2,
   "x": 1,
   "y": 1,
-  "text": "[fg:blue]This is a [bold]bold[/bold] and [fg:green][bg:red]colorful[/fg][/bg] /[text/].[/fg] [italic]This is an [underline]underlined[/underline] and [italic]italic[/italic] text.[/italic]"
+  "text": "[fg:blue]This is a [bold]bold[/bold] and \n[fg:green][bg:red]colorful[/fg][/bg] /[text/].[/fg] [italic]This is an [underline]underlined[/underline] and [italic]italic[/italic] text.[/italic]"
 })
 var fiont = true;
 // define a fixed time step in milliseconds
