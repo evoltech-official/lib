@@ -8,6 +8,8 @@ const lib = {
     init: instance.init.bind(instance),
     start: instance.start.bind(instance),
     pause: instance.pause.bind(instance),
+    on: instance.on.bind(instance),
+    every: instance.every.bind(instance),
     map: instance.map,
     store: instance.store,
     camera: instance.map.camera,

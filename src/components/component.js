@@ -6,6 +6,9 @@ class Component {
         this.parent = par;
         this.parser = new Parser();
     }
+    on(name,func) {
+        this.events.registerEvent(name,func);
+    }
 }
 
 export default Component;

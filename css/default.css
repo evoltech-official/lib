@@ -1,11 +1,3 @@
-@font-face {
-    font-family: "Amiga Forever";
-    src: url('/font/amiga4everpro.eot');
-    src: url('/font/amiga4everpro.eot') format('embedded-opentype'),
-         url('/font/amiga4everpro.woff2') format('woff2'),
-         url('/font/amiga4everpro.woff') format('woff'),
-         url('/font/amiga4everpro.ttf') format('truetype');
-}
 :root {
     --black: #111012;
     --lightblack: #1f1e1f;

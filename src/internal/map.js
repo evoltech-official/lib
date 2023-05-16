@@ -2,9 +2,9 @@ import Camera from './camera';
 import Drawer from './drawer';
 
 class Map {
-    constructor(store) {
+    constructor(store,events) {
         this.map;
-        this.drawer = new Drawer(store,this);
+        this.drawer = new Drawer(store,this,events);
         this.camera = new Camera();
         this.camera.width = Math.floor(this.fromWidthToText(window.innerWidth*0.8,0)[1]);
         this.camera.height = Math.floor(this.fromWidthToText(0,window.innerHeight)[0]);

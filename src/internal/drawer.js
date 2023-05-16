@@ -1,17 +1,18 @@
 class Drawer {
-    constructor(store,map) {
+    constructor(store,map,events) {
         this.store = store.storage;
         this.map = map;
+        this.events = events;
     }
     draw() {
-        for(var i = 0; i < this.store.length; i++) {
-            this.store[i].draw(this.map);
-        }
+        this.store.forEach(item => {
+            item.draw(this.map);
+        });
     }
     setup() {
-        for(var i = 0; i < this.store.length; i++) {
-            this.store[i].setup();
-        }
+        this.store.forEach(item => {
+            item.setup(this.events);
+        });
     }
 }
 

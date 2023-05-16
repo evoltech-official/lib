@@ -29,7 +29,7 @@ var box2 = new evol.components.box('knockoffbox','thebox',{
 });
 var beautifultext = new evol.components.par('paragraph','thebox',{
   "width": box.style.width-2,
-  "height": 2,
+  "height": 3,
   "x": 1,
   "y": 1,
   "text": "[fg:blue]This is a [bold]bold[/bold] and \n[fg:green][bg:red]colorful[/fg][/bg] /[text/].[/fg] [italic]This is an [underline]underlined[/underline] and [italic]italic[/italic] text.[/italic]"
@@ -79,6 +79,11 @@ function animate(timestamp) {
 }
 // start animation
 requestAnimationFrame(animate);
+
+evol.every(1,(timestamp) => {
+  console.log('Hello World!');
+});
+
 evol.store.add(gagsas);
 evol.store.add(box);
 evol.store.add(beautifultext);
