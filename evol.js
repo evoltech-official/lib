@@ -35,53 +35,29 @@ var beautifultext = new evol.components.par('paragraph','thebox',{
   "text": "[fg:blue]This is a [bold]bold[/bold] and \n[fg:green][bg:red]colorful[/fg][/bg] /[text/].[/fg] [italic]This is an [underline]underlined[/underline] and [italic]italic[/italic] text.[/italic]"
 })
 var fiont = true;
-// define a fixed time step in milliseconds
-let previous = 0;
-let timeStep = 60;
-// define a variable to store the accumulated time
-let accumulatedTime = 0;
-function animate(timestamp) {
-  // calculate delta time in milliseconds
-  let delta = timestamp - previous;
-  // update previous timestamp
-  previous = timestamp;
-  // add delta to accumulated time
-  accumulatedTime += delta;
-  // update animation using fixed time step
-  while (accumulatedTime >= timeStep) {
-    // subtract time step from accumulated time
-    accumulatedTime -= timeStep;
-    // update animation logic using time step
-    if(fiont) {
-      if((box.style.x + box.style.width) < (box.parent.style.width - 1)) {
-          box.style.x+= Math.floor(timeStep/60);
-      } else {
-          var boxstyle = box.style;
-          boxstyle.slice[0][1] = "<";
-          boxstyle.slice[1][1] = "<";
-          boxstyle.slice[2][1] = "<";
-          fiont = false;
-      }
+
+evol.every(60,() => {
+  if(fiont) {
+    if((box.style.x + box.style.width) < (box.parent.style.width - 1)) {
+        box.style.x++;
     } else {
-      if(box.style.x != 1) {
-          box.style.x-= Math.floor(timeStep/60);
-      } else {
-          var boxstyle = box.style;
-          boxstyle.slice[0][1] = ">";
-          boxstyle.slice[1][1] = ">";
-          boxstyle.slice[2][1] = ">";
-          fiont = true;
-      }
+        var boxstyle = box.style;
+        boxstyle.slice[0][1] = "<";
+        boxstyle.slice[1][1] = "<";
+        boxstyle.slice[2][1] = "<";
+        fiont = false;
+    }
+  } else {
+    if(box.style.x != 1) {
+        box.style.x--;
+    } else {
+        var boxstyle = box.style;
+        boxstyle.slice[0][1] = ">";
+        boxstyle.slice[1][1] = ">";
+        boxstyle.slice[2][1] = ">";
+        fiont = true;
     }
   }
-  // request next frame
-  requestAnimationFrame(animate);
-}
-// start animation
-requestAnimationFrame(animate);
-
-evol.every(1,(timestamp) => {
-  console.log('Hello World!');
 });
 
 evol.store.add(gagsas);

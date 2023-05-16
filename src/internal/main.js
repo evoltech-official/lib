@@ -26,7 +26,7 @@ class Evol {
                 let elapsed = Date.now() - item.start;
                 if (elapsed >= item.ms) {
                     item.start = Date.now();
-                    item.func(ts);
+                    item.func();
                 }
             });
             if (!this.stopped) {
