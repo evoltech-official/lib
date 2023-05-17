@@ -9,14 +9,34 @@ class Box extends Component {
         this.style.litx = this.style.x;
         this.style.lity = this.style.y;
         if(this.parent) {
-            this.style.litx = this.parent.style.litx + this.style.x;
-            this.style.lity = this.parent.style.lity + this.style.y;
+            if(/^\d+(\.\d+)?%$/g.test(this.style.x)) {
+                console.log(this.id);
+                var percentnum = this.style.x.slice (0, -1);
+                this.style.x = Math.round((percentnum / 100) * this.parent.style.width);
+            }
+            if(/^\d+(\.\d+)?%$/g.test(this.style.y)) {
+                console.log(this.id);
+                var percentnum = this.style.y.slice (0, -1);
+                this.style.y = Math.round((percentnum / 100) * this.parent.style.height);
+            }
+            if(/^\d+(\.\d+)?%$/g.test(this.style.width)) {
+                console.log(this.id);
+                var percentnum = this.style.width.slice (0, -1);
+                this.style.width = Math.round((percentnum / 100) * this.parent.style.width);
+            }
+            if(/^\d+(\.\d+)?%$/g.test(this.style.height)) {
+                var percentnum = this.style.height.slice (0, -1);
+                this.style.height = Math.round((percentnum / 100) * this.parent.style.height);
+                console.log(this.id);
+            }
             if(this.style.width == 'full') {
                 this.style.width = this.parent.style.width - this.style.x;
             }
             if(this.style.height == 'full') {
                 this.style.height = this.parent.style.height - this.style.y;
             }
+            this.style.litx = this.parent.style.litx + this.style.x;
+            this.style.lity = this.parent.style.lity + this.style.y;
         }
         map.drawRect(this.style.litx,this.style.lity,this.style.width,this.style.height,this.style.slice ? this.style.slice[1][1] : ' ');
         if(this.style.slice) {
