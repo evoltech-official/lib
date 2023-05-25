@@ -1,3 +1,6 @@
+import http from 'http';
+var evolserver = http.createServer();
+
 var gagsas = new evol.components.box('gagsas',null,{
     width: evol.screen.width - 4,
     height: evol.screen.height - 4,
@@ -64,5 +67,10 @@ evol.store.add(gagsas);
 evol.store.add(box);
 evol.store.add(beautifultext);
 evol.store.add(box2);
-evol.init('Config');
+evol.init({
+  title: 'EvolTest',
+  version: '1.0.0',
+  server: evolserver,
+});
+evolserver.listen();
 evol.start();

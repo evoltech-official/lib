@@ -1,23 +1,25 @@
 import Map from "./map";
 import Store from "./store";
 import EventRegistry from "./regevents";
+import { Server } from "socket.io";
 
 class Evol {
     constructor() {
+        this.io = new Server();
         this.store = new Store();
         this.events = new EventRegistry();
-        this.map = new Map(this.store,this.events);
+        this.map = new Map(this);
         this.everyfunc = [];
         this.pts;
         this.stopped = false;
     }
     init(config) {
         this.map.drawer.setup();
-        this.events.registerBaseEvents();
-        console.log(config);
+        this.events.registerBaseEvents(this.io);
+        this.config = config;
     }
     start() {
-        let start = Date.now();
+        /*let start = Date.now();
         const step = (ts) => {
             if (this.pts != ts) {
                 document.getElementById('term').innerHTML = this.map.draw();
@@ -34,7 +36,13 @@ class Evol {
                 window.requestAnimationFrame(step);
             }
         }
-        window.requestAnimationFrame(step);
+        window.requestAnimationFrame(step);*/
+        this.io.on("connection", (socket) => {
+            socket.on('reqterm', () => {
+                socket.emit('term',[this.store,this.events,this.everyfunc]);
+            });
+        });
+        this.io.listen(this.config.server || this.config.port);
     }
     every(ms,func) {
         this.everyfunc.push(

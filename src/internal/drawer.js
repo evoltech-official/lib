@@ -1,8 +1,8 @@
 class Drawer {
-    constructor(store,map,events) {
-        this.store = store.storage;
-        this.map = map;
-        this.events = events;
+    constructor(main) {
+        this.store = main.store.storage;
+        this.map = main.map;
+        this.evolobj = main;
     }
     draw() {
         this.store.forEach(item => {
@@ -11,7 +11,7 @@ class Drawer {
     }
     setup() {
         this.store.forEach(item => {
-            item.setup(this.events);
+            item.setup(this.evolobj);
         });
     }
 }

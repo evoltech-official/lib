@@ -58,16 +58,16 @@ class Box extends Component {
             }
         }
     }
-    setup(event) {
+    setup(main) {
         if (this.parent) {
-            var pas = evol.store.find(this.parent);
+            var pas = main.store.find(this.parent);
             if(pas) {
                 this.parent = pas;
             } else {
                 console.error('The parent { '+this.parent+' } you provided for the { '+this.id+' } component deos not exist.');
             }
         } else this.parent = null;
-        this.events = event;
+        this.main = main;
     }
 }
 

@@ -2,12 +2,12 @@ import Camera from './camera';
 import Drawer from './drawer';
 
 class Map {
-    constructor(store,events) {
+    constructor(main) {
         this.map;
-        this.drawer = new Drawer(store,this,events);
+        this.drawer = new Drawer(main);
         this.camera = new Camera();
-        this.camera.width = Math.floor(this.fromWidthToText(window.innerWidth*0.8,0)[1]);
-        this.camera.height = Math.floor(this.fromWidthToText(0,window.innerHeight)[0]);
+        this.camera.width = Math.floor(this.fromWidthToText(/*window.innerWidth*/45*0.8,0)[1]);
+        this.camera.height = Math.floor(this.fromWidthToText(0,/*window.innerHeight*/54)[0]);
     }
     fromWidthToText(x,y) {
         var linewidth = x/13;
@@ -15,8 +15,8 @@ class Map {
         return [lineheight,linewidth];
     }
     update() {
-        this.camera.width = Math.floor(this.fromWidthToText(window.innerWidth*0.8,0)[1]);
-        this.camera.height = Math.floor(this.fromWidthToText(0,window.innerHeight)[0]);
+        this.camera.width = Math.floor(this.fromWidthToText(/*window.innerWidth*/45*0.8,0)[1]);
+        this.camera.height = Math.floor(this.fromWidthToText(0,/*window.innerHeight*/54)[0]);
         this.map = Array.from({ length: this.camera.height }, () => Array(this.camera.width).fill(' '));
     }
     draw() {
